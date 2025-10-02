@@ -18,7 +18,7 @@ const nombre = ref('Martín Bernatene')
 const edad = ref(51)
 const ciudad = ref('Viedma')
 const parrafo = computed (() => 
-  `Hola, mi nombre es ${nombre.value}, tengo ${edad.value} años y vivo en ${ciudad.value}`
+  `Hola, mi nombre es ${nombre.value}, tengo ${edad.value} años, y vivo en ${ciudad.value}`
 )
 </script>
 
