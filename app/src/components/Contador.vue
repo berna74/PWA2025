@@ -24,7 +24,7 @@ function decrementar() {
 .contador-contenedor {
   text-align: left;
   padding: 16px;
-  background: #e3f2fd;
+  background: #f9fbe7;
   border-radius: 8px;
   width: 220px;
 }

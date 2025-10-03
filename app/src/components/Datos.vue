@@ -26,7 +26,7 @@ const parrafo = computed (() =>
 .contenedor {
   text-align: left;
   padding: 16px;
-  background: #f5f5f5;
+  background: #f9fbe7;
   border-radius: 8px;
 }
 h3 {
