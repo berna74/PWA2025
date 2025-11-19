@@ -1,16 +1,10 @@
 <template>
   <div class="eventos-contenedor">
     <h2 v-once>Lista de Eventos</h2>
-
-    <button @click="forzarActualizacion">
-      Actualizar ({{ contadorActualizaciones }})
-    </button>
-    <hr v-once>
-    
+    <h3 v-once>Eventos:</h3>
     <ul>
       <li v-for="evento in ultimosEventos" :key="evento.id">
-        <span v-once>ID:</span>{{ evento.id }} | 
-        <strong>{{ evento.nombre }}</strong> —
+        <strong>{{ evento.nombre }}</strong> -
         <span>{{ evento.timestamp }}</span>
       </li>
     </ul>
@@ -18,11 +12,10 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onBeforeMount, onMounted, onBeforeUpdate, onUpdated, 
+import { ref, computed, onBeforeMount, onMounted, onBeforeUpdate, 
          onBeforeUnmount, onUnmounted} from 'vue'
 
-// Variable reactiva para forzar re-renderizados
-const contadorActualizaciones = ref(0)
+
 
 // Lista de eventos (histórico completo)
 const listaEventos = ref<{ id: number; nombre: string; timestamp: string }[]>([])
@@ -37,24 +30,20 @@ function registrarEvento(nombre: string) {
   })
 }
 
-function forzarActualizacion() {
-  // Dispara el ciclo de beforeUpdate y updated
-  contadorActualizaciones.value++
-}
+
+
 
 /* ---------------- PROPIEDAD COMPUTADA ---------------- */
 
-// Filtra la lista para obtener solo los últimos 10 elementos.
+// Filtra la lista para obtener solo los últimos 6 elementos.
 const ultimosEventos = computed(() => {
-  // El método .slice(-10) devuelve los últimos 10 elementos del array.
-  return listaEventos.value.slice(-10)
+  return listaEventos.value.slice(-6).reverse()
 })
 
 /* ---------------- CICLO DE VIDA ---------------- */
 onBeforeMount(() => registrarEvento('beforeMount'))
 onMounted(() => registrarEvento('mounted'))
 onBeforeUpdate(() => registrarEvento('beforeUpdate'))
-onUpdated(() => registrarEvento('updated'))
 onBeforeUnmount(() => registrarEvento('beforeUnmount'))
 onUnmounted(() => registrarEvento('unmounted'))
 </script>
@@ -72,14 +61,6 @@ ul {
   padding: 0;
 }
 li {
-  margin: 8px 0;
-}
-button {
-  margin-left: 8px;
-  padding: 6px 12px;
-  }
-hr {
-    border: 0;
-    margin: 10px 0;
+  margin: 8px 30px;
 }
 </style>
