@@ -1,6 +1,6 @@
 <template>
   <div class="tareas-contenedor">
-    <h2>Lista de Tareas</h2>
+    <h2>Tareas</h2>
     <input v-model="nuevaTarea" placeholder="Nueva tarea..." />
     <button @click="agregarTarea">Añadir Tarea</button>
     <ul>
