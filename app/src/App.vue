@@ -2,8 +2,9 @@
 import Datos from './components/Datos.vue'
 import Contador from './components/Contador.vue'
 import Tareas from './components/Tareas.vue'
-// Make sure ListaEventos.vue exists in src/components
 import Eventos from './components/ListaEventos.vue'
+import Posteos from './components/Posteos.vue';
+
 
 
 </script>
@@ -20,6 +21,9 @@ import Eventos from './components/ListaEventos.vue'
 
    <div class="enunciado">  Paso#1 TP2 </div> 
     <Eventos />
+
+    <div class="enunciado">  Paso#3 TP2 </div> 
+    <Posteos />
   
   
 </template>

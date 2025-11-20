@@ -17,7 +17,7 @@ import { ref, computed, onBeforeMount, onMounted, onBeforeUpdate,
 
 
 
-// Lista de eventos (histórico completo)
+
 const listaEventos = ref<{ id: number; nombre: string; timestamp: string }[]>([])
 
 let contador = 1
@@ -33,14 +33,12 @@ function registrarEvento(nombre: string) {
 
 
 
-/* ---------------- PROPIEDAD COMPUTADA ---------------- */
 
-// Filtra la lista para obtener solo los últimos 6 elementos.
 const ultimosEventos = computed(() => {
   return listaEventos.value.slice(-6).reverse()
 })
 
-/* ---------------- CICLO DE VIDA ---------------- */
+
 onBeforeMount(() => registrarEvento('beforeMount'))
 onMounted(() => registrarEvento('mounted'))
 onBeforeUpdate(() => registrarEvento('beforeUpdate'))

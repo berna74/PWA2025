@@ -1,11 +1,15 @@
-import { API } from './index'; 
+import axios from "axios";
 
-export async function obtenerPost(postId) {
-    const response = await API.get(`posts/${postId}`);
-    return response.data; 
+const API = axios.create({
+    baseURL: "https://jsonplaceholder.typicode.com",
+});
+
+export async function obtenerPost(id) {
+    const { data } = await API.get(`/posts/${id}`);
+    return data;
 }
 
-export async function obtenerComments(postId) {
-    const response = await API.get(`posts/${postId}/comments`);
-    return response.data; 
+export async function obtenerComments(id) {
+    const { data } = await API.get(`/posts/${id}/comments`);
+    return data;
 }
