@@ -26,7 +26,7 @@ function registrarEvento(nombre: string) {
   listaEventos.value.push({
     id: contador++,
     nombre,
-    timestamp: new Date().toISOString() // incluye milisegundos
+    timestamp: new Date().toISOString() 
   })
 }
 
