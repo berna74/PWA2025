@@ -1,5 +1,5 @@
 <template>
-  <div class="posts-container">
+  <div class="posts-contenedor">
     <div 
       v-for="post in postsList" 
       :key="post.id" 
@@ -79,11 +79,12 @@ fetchInitialPosts();
 
 <style scoped>
 
-.posts-container {text-align: left;
+.posts-contenedor {
+  text-align: left;
   padding: 16px;
-  background: #f9fbe7;
-  border-radius: 8px;
-  width: 320px;
+  background: #fcfcfc;
+  border-radius: 2px;
+  border: 0.2px solid #e9e9e9;
 }
 
 .post-item {

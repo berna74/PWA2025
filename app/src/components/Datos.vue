@@ -26,10 +26,8 @@ const parrafo = computed (() =>
 .contenedor {
   text-align: left;
   padding: 16px;
-  background: #f9fbe7;
-  border-radius: 8px;
-}
-h3 {
-  margin: 8px 0;
+  background: #fcfcfc;
+  border-radius: 2px;
+  border: 0.2px solid #e9e9e9;
 }
 </style>

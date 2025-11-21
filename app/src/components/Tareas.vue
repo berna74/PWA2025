@@ -1,11 +1,11 @@
 <template>
   <div class="tareas-contenedor">
     <h2>Tareas</h2>
-    <input v-model="nuevaTarea" placeholder="Nueva tarea..." />
-    <button @click="agregarTarea">Añadir Tarea</button>
+    <input v-model="nuevaTarea" class="input-tarea" placeholder="Nueva tarea..." />
+    <button @click="agregarTarea">Agregar Tarea</button>
     <ul>
-      <li v-for="tarea in tareas" :key="tarea.id">
-        <input type="checkbox" v-model="tarea.completada" />
+      <li class="li-tarea" v-for="tarea in tareas" :key="tarea.id">
+        <input type="checkbox" class="checkbox" v-model="tarea.completada" />
         <span :class="{ completada: tarea.completada }">{{ tarea.texto }}</span>
       </li>
     </ul>
@@ -48,28 +48,29 @@ const totalTareas = computed(() =>
 .tareas-contenedor {
   text-align: left;
   padding: 16px;
-  background: #f9fbe7;
-  border-radius: 8px;
-  width: 320px;
+  background: #fcfcfc;
+  border-radius: 2px;
+  border: 0.2px solid #e9e9e9;
 }
-input[type="text"] {
-  margin-bottom: 8px;
-  padding: 6px;
-  width: 180px;
+.input-tarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  width: 200px;
+  font-size: 16px;
+  outline: none;
+  }
+
+.input-tarea:focus {
+  border-color: #4a90e2;
+  box-shadow: 0 0 4px rgba(74, 144, 226, 0.4);
 }
-button {
-  margin-left: 8px;
-  padding: 6px 12px;
-}
-ul {
+
+.li-tarea {
   list-style: none;
-  padding: 0;
+  margin: 4px 0;
 }
-li {
-  margin: 8px 0;
-}
-.completada {
-  text-decoration: line-through;
-  color: #888;
+.checkbox {
+  margin-right: 8px;
 }
 </style>

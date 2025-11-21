@@ -48,17 +48,11 @@ onUnmounted(() => registrarEvento('unmounted'))
 
 <style scoped>
 .eventos-contenedor {
-  text-align: left;
+text-align: left;
   padding: 16px;
-  background: #f9fbe7;
-  border-radius: 8px;
-  width: 420px;
-}
-ul {
-  list-style: none;
-  padding: 0;
-}
-li {
-  margin: 8px 30px;
+  background: #fcfcfc;
+  border-radius: 2px;
+  border: 0.2px solid #e9e9e9;
+  
 }
 </style>
