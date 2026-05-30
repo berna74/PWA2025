@@ -1,0 +1,39 @@
+# docker-compose.yml
+services:
+ backend:
+    image: videobackend:0.11
+    build:
+      context: ./config/django_image
+    volumes:
+      - ./src/django:/usr/src/app:delegated
+    environment:
+      DB_HOST: ${DB_HOST}
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      DJANGO_SU_NAME: ${DJANGO_SU_NAME}
+      DJANGO_SU_EMAIL: ${DJANGO_SU_EMAIL}  
+      DJANGO_SU_PASSWD: ${DJANGO_SU_PASSWD}
+    ports:
+      - "8000:8000"
+    networks:
+      red:
+ postgres:
+    # Instancia de PostgreSQL 16 para laburar en local.
+    image: postgres:16-bullseye
+    environment:
+      # Variables de entorno para el nombre de la base, usuario y clave.
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    volumes:
+      # Persistencia local dentro del proyecto (esta carpeta no se versiona).
+      - ./postgres_data:/var/lib/postgresql/data:delegated
+    ports:
+      # Expone el 5432 para poder conectarte desde tu PC.
+      - "5432:5432"
+    networks:
+      - red
+networks:
+  red:
+    driver: bridge

@@ -1,0 +1,4 @@
+# Variables locales: no subir este archivo al repo.
+.env
+# Datos persistidos de PostgreSQL: no subir esta carpeta al repo.
+postgres_data/
