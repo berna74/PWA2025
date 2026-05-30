@@ -30,7 +30,7 @@ services:
       # Persistencia local dentro del proyecto (esta carpeta no se versiona).
       - ./postgres_data:/var/lib/postgresql/data:delegated
     ports:
-      # Expone el 5432 para poder conectarte desde tu PC.
+      # Expone el 5432 para poder conectarme desde mi compu.
       - "5432:5432"
     networks:
       - red
