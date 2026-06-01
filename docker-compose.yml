@@ -1,6 +1,6 @@
 # docker-compose.yml
 services:
- django:
+ backend:
     image: fei2026tp-django:0.1
     build:
       context: .
@@ -35,7 +35,7 @@ services:
       # Persistencia local dentro del proyecto (esta carpeta no se versiona).
       - ./postgres_data:/var/lib/postgresql/data:delegated
     ports:
-      # Expone el 5432 para poder conectarte desde tu PC.
+      # Expone el 5432 para poder conectarme desde mi PC.
       - "5432:5432"
     networks:
       - red
